@@ -27,7 +27,7 @@ Giải pháp này là **kết quả đầu ra** mà thuật toán tìm kiếm tr
 - Greedy: Mở rộng nút được ước tính là gần mục tiêu nhất.
 - Tìm kiếm A* :Kết hợp chi phí đã đi đến nút và chi phí ước tính đến mục tiêu, đảm bảo tính tối ưu trong các điều kiện nhất định.
 - IDA (A sâu dần lặp lại):Một phiên bản sâu dần lặp lại của A*, hữu ích cho các không gian tìm kiếm lớn.
-### Giải pháp (Solution)
+### Giải pháp
 Một **giải pháp** là chuỗi các hành động (hoặc trạng thái trung gian) dẫn từ **trạng thái ban đầu** đến **trạng thái đích**, sao cho thỏa mãn yêu cầu của bài toán tìm kiếm. Đây là kết quả cuối cùng mà thuật toán tìm kiếm trả về.
 ![Image](https://github.com/user-attachments/assets/25682b96-c22b-4f3c-a716-0f6996cedf89)
 ## 2.3. Local Search
@@ -38,7 +38,7 @@ Local Search là nhóm thuật toán tìm kiếm không quan tâm đến toàn b
 - Simulated Annealing: Cho phép di chuyển đến các trạng thái tồi tệ hơn với một xác suất giảm dần theo thời gian, giúp thoát khỏi các cực tiểu cục bộ.
 - Genetic Algorithm: Một thuật toán metaheuristic dựa trên quần thể, lấy cảm hứng từ chọn lọc tự nhiên.
 - Local Beam Search: Duy trì và cải thiện nhiều giải pháp ứng viên.
-### Solution (Giải pháp):
+###Giải pháp:
 Là chuỗi các hành động hoặc trạng thái dẫn từ **trạng thái ban đầu** đến **trạng thái đích**, sao cho thỏa mãn mục tiêu bài toán. Trong Local Search, giải pháp có thể là trạng thái "tốt nhất" đạt được, không nhất thiết phải là tối ưu toàn cục.
 ![Image](https://github.com/user-attachments/assets/b7416e34-5971-4240-ab22-87d5ffc9a214)
 ## 2.4. Constraint Satisfaction Problems
