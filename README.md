@@ -43,12 +43,12 @@ Là chuỗi các hành động hoặc trạng thái dẫn từ **trạng thái b
 ![Image](https://github.com/user-attachments/assets/b7416e34-5971-4240-ab22-87d5ffc9a214)
 ## 2.4. Constraint Satisfaction Problems
 Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiêu là tìm một sự phân bổ giá trị cho các biến sao cho tất cả các ràng buộc giữa các biến đều được thỏa mãn. CSP là một lĩnh vực quan trọng trong trí tuệ nhân tạo và lý thuyết tối ưu, với ứng dụng trong nhiều bài toán thực tiễn như lập lịch, tìm kiếm, và lập trình ràng buộc.
-![Image](https://github.com/user-attachments/assets/4a463e48-7e59-42e8-9235-062f7e2a53c7)
-## 2.5. Searching in Complex Environments
-- Local Search là nhóm thuật toán tìm kiếm không quan tâm đến toàn bộ không gian trạng thái, mà chỉ tập trung vào việc cải thiện trạng thái hiện tại. Thường được sử dụng khi không cần lưu vết đường đi, hoặc không gian trạng thái quá lớn để duyệt toàn bộ.
 - Backtracking: Một thuật toán tổng quát để tìm tất cả (hoặc một số) giải pháp cho một số bài toán tính toán, xây dựng dần các ứng viên cho giải pháp và từ bỏ một ứng viên ("quay lui") ngay khi xác định rằng ứng viên này không thể hoàn thành thành một giải pháp hợp lệ.
 - Backtracking Forward: Một biến thể của quay lui kết hợp kiểm tra phía trước để cắt tỉa không gian tìm kiếm sớm hơn.
 - Min-Conflicts: Một thuật toán tìm kiếm cục bộ được thiết kế đặc biệt cho các bài toán thỏa mãn ràng buộc.
+![Image](https://github.com/user-attachments/assets/4a463e48-7e59-42e8-9235-062f7e2a53c7)
+## 2.5. Searching in Complex Environments
+
 ![Image](https://github.com/user-attachments/assets/ec6cfeee-7c15-47d0-a75f-bd036fdbb00b)
 
 
