@@ -66,5 +66,18 @@ Là chuỗi các hành động hoặc trạng thái dẫn từ **trạng thái b
 ## 2.4. Constraint Satisfaction Problems
 Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiêu là tìm một sự phân bổ giá trị cho các biến sao cho tất cả các ràng buộc giữa các biến đều được thỏa mãn. CSP là một lĩnh vực quan trọng trong trí tuệ nhân tạo và lý thuyết tối ưu, với ứng dụng trong nhiều bài toán thực tiễn như lập lịch, tìm kiếm, và lập trình ràng buộc.
 ![Image](https://github.com/user-attachments/assets/4a463e48-7e59-42e8-9235-062f7e2a53c7)
+## 2.5. Searching in Complex Environments
+Local Search là nhóm thuật toán tìm kiếm không quan tâm đến toàn bộ không gian trạng thái, mà chỉ tập trung vào việc cải thiện trạng thái hiện tại. Thường được sử dụng khi không cần lưu vết đường đi, hoặc không gian trạng thái quá lớn để duyệt toàn bộ.
+###  Các thành phần chính của bài toán tìm kiếm:
+- **Không gian trạng thái (State space):**  
+  Tập hợp tất cả các trạng thái có thể xảy ra trong môi trường, mô tả các cấu hình hoặc vị trí khác nhau của hệ thống.
+- **Trạng thái ban đầu (Initial state):**  
+  Trạng thái xuất phát, nơi quá trình tìm kiếm bắt đầu.
+Trạng thái đích hoặc mục tiêu (Goal state): Trạng thái hoặc tập hợp trạng thái mà ta muốn đạt tới.
+- Toán tử chuyển trạng thái (Actions/Operators): Các phép biến đổi cho phép chuyển từ trạng thái này sang trạng thái khác trong không gian trạng thái.
+- Hàm kiểm tra trạng thái đích (Goal test): Hàm xác định xem trạng thái hiện tại có phải là trạng thái mục tiêu hay không.
+- Thông tin quan sát (Observability): Trong môi trường phức tạp, có thể trạng thái không được quan sát đầy đủ hoặc chỉ quan sát một phần, dẫn đến các bài toán tìm kiếm một phần quan sát (partially observable).
+- Mô hình môi trường (Model of environment): Mô tả cách trạng thái chuyển đổi dựa trên hành động, có thể là xác định hoặc ngẫu nhiên. Solution là một chuỗi các hành động hoặc kế hoạch (plan) từ trạng thái ban đầu đến trạng thái mục tiêu, sao cho thỏa mãn các ràng buộc của môi trường và đạt được mục tiêu đề ra.
+![Image](https://github.com/user-attachments/assets/ec6cfeee-7c15-47d0-a75f-bd036fdbb00b)
 
 
