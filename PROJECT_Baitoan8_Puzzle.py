@@ -179,70 +179,7 @@ def uniform_cost_search(start_state):
                 new_cost = cost + 1  # Each move has a cost of 1
                 heapq.heappush(queue, (new_cost, next_state, path + [state]))
     
-def partially_observable_search(start_state, observed_positions=None):
-    if not is_solvable(start_state):
-        return None, 0, 0
 
-    start_time = time.time()
-    visited = set()
-
-    if observed_positions is None:
-        observed_positions = [0, 1, 3, 4]
-
-    def generate_initial_belief():
-        belief = []
-        observed_values = {i: start_state[i] for i in observed_positions}
-        base_state = start_state.copy()
-        for i in range(9):
-            if i not in observed_positions:
-                base_state[i] = None
-        available_numbers = [x for x in range(9) if x not in observed_values.values()]
-        def fill_unknown(state, positions, numbers, current_belief):
-            if not positions:
-                if is_solvable(state):
-                    current_belief.append(state[:])
-                return
-            pos = positions[0]
-            for num in numbers:
-                if num not in state:
-                    state[pos] = num
-                    fill_unknown(state, positions[1:], numbers, current_belief)
-                    state[pos] = None
-        unobserved_positions = [i for i in range(9) if i not in observed_positions]
-        fill_unknown(base_state, unobserved_positions, available_numbers, belief)
-        return belief
-
-    belief_state = generate_initial_belief()
-    belief_tuple = frozenset(tuple(s) for s in belief_state)
-    visited.add(belief_tuple)
-
-    queue = [(min(h_manhattan(s) for s in belief_state), belief_state, [])]
-
-    while queue:
-        _, current_belief, path = heapq.heappop(queue)
-        if all(is_goal(state) for state in current_belief):
-            representative_state = current_belief[0]
-            return path + [representative_state], len(visited), time.time() - start_time
-
-        successor_states = set()
-        for state in current_belief:
-            for next_state, _, _ in get_next_states(state):
-                is_consistent = all(next_state[i] == start_state[i] for i in observed_positions)
-                if is_consistent:
-                    successor_states.add(tuple(next_state))
-
-        if not successor_states:
-            continue
-
-        next_belief = [list(s) for s in successor_states]
-        belief_tuple = frozenset(tuple(s) for s in next_belief)
-
-        if belief_tuple not in visited:
-            visited.add(belief_tuple)
-            h_value = min(h_manhattan(s) for s in next_belief)
-            heapq.heappush(queue, (h_value, next_belief, path + [current_belief[0]]))
-
-    return None, len(visited), time.time() - start_time
 def greedy(start_state):
     queue = [(h_misplaced(start_state), start_state, [])]
     visited = set()
@@ -567,11 +504,11 @@ def and_or_tree_search(start_state):
     
     start_time = time.time()
     visited = set()
-    depth_limit = 50  # SỬA: Tăng từ 30 lên 50 để cho phép tìm kiếm sâu hơn
+    depth_limit = 50  
     initial_h = h_manhattan(start_state)
-    h_threshold = initial_h + 10  # THÊM: Ngưỡng heuristic động dựa trên trạng thái ban đầu
+    h_threshold = initial_h + 10  
     
-    # Kiểm tra trạng thái ban đầu
+  
     if is_goal(start_state):
         return [start_state], 1, time.time() - start_time
     
