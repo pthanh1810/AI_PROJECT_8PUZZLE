@@ -24,6 +24,10 @@ Một **giải pháp** cho bài toán tìm kiếm là một chuỗi các hành �
 Giải pháp này là **kết quả đầu ra** mà thuật toán tìm kiếm trả về khi tìm được đường đi tối ưu hoặc hợp lệ.
 ![Image](https://github.com/user-attachments/assets/66f87ae3-6b5d-45de-a73e-f531d80a11e5)
 ![Image](https://github.com/user-attachments/assets/5294ef7c-f890-47c4-bf44-dff967b12400)
+### Đánh giá thuật toán
+-DFS (Depth-First Search) có thời gian thực hiện cao nhất (0.1576 giây), chứng tỏ không tối ưu trong bài toán 8-puzzle về mặt thời gian. Mặc dù DFS sử dụng ít bộ nhớ, nhưng dễ đi vào nhánh sai và mất thời gian tìm lối thoát.
+-BFS và IDS có thời gian gần như bằng 0, cho thấy rất nhanh trong trường hợp cụ thể này. Tuy nhiên, điều này còn phụ thuộc vào độ sâu của lời giải – nếu trạng thái đích nằm sâu, BFS sẽ tốn nhiều tài nguyên hơn.
+-UCS (Uniform-Cost Search) có thời gian thực hiện nhỏ (0.0015 giây), chậm hơn BFS và IDS một chút nhưng đảm bảo tìm giải pháp có chi phí thấp nhất.
 ## 2.2 Các thuật toán tìm kiếm không có thông tin
 - Greedy: Mở rộng nút được ước tính là gần mục tiêu nhất.
 - Tìm kiếm A* :Kết hợp chi phí đã đi đến nút và chi phí ước tính đến mục tiêu, đảm bảo tính tối ưu trong các điều kiện nhất định.
