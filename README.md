@@ -73,16 +73,19 @@ Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiê
 - Min-Conflicts: có thể tìm lời giải nhanh chóng nếu bắt đầu từ một trạng thái khởi đầu tốt. Tuy vậy, nó không đảm bảo tìm được lời giải trong mọi trường hợp, đặc biệt nếu không gian trạng thái có nhiều cực trị cục bộ hoặc trạng thái khởi đầu không tốt.
 ## 2.5. Searching in Complex Environments
 Trong các bài toán tìm kiếm phức tạp, thường có một số thành phần cơ bản như sau:
--Không gian trạng thái: Tập hợp tất cả các trạng thái có thể có của hệ thống, phản ánh các cấu hình hay vị trí khác nhau trong môi trường.
--Trạng thái khởi đầu: Nơi bắt đầu quá trình tìm kiếm.
--Trạng thái mục tiêu: Trạng thái (hoặc một nhóm trạng thái) mà thuật toán hướng tới.
--Tập hành động hoặc toán tử chuyển trạng thái: Các hành động cho phép chuyển từ trạng thái hiện tại sang trạng thái kế tiếp trong không gian trạng thái.
--Hàm kiểm tra mục tiêu: Dùng để xác định liệu trạng thái hiện tại có phải là trạng thái đích hay không.
--Mức độ quan sát: Trong một số môi trường, trạng thái có thể chỉ được quan sát một phần, tạo thành các bài toán với khả năng quan sát không đầy đủ.
--Mô hình môi trường: Mô tả cách các hành động ảnh hưởng đến trạng thái – có thể xác định (deterministic) hoặc ngẫu nhiên (stochastic).
--Giải pháp của bài toán là một chuỗi hành động (hoặc một kế hoạch) dẫn từ trạng thái ban đầu đến mục tiêu, đảm bảo tuân thủ các ràng buộc và đạt được mục tiêu mong muốn
+- Không gian trạng thái: Tập hợp tất cả các trạng thái có thể có của hệ thống, phản ánh các cấu hình hay vị trí khác nhau trong môi trường.
+- Trạng thái khởi đầu: Nơi bắt đầu quá trình tìm kiếm.
+- Trạng thái mục tiêu: Trạng thái (hoặc một nhóm trạng thái) mà thuật toán hướng tới.
+- Tập hành động hoặc toán tử chuyển trạng thái: Các hành động cho phép chuyển từ trạng thái hiện tại sang trạng thái kế tiếp trong không gian trạng thái.
+- Hàm kiểm tra mục tiêu: Dùng để xác định liệu trạng thái hiện tại có phải là trạng thái đích hay không.
+- Mức độ quan sát: Trong một số môi trường, trạng thái có thể chỉ được quan sát một phần, tạo thành các bài toán với khả năng quan sát không đầy đủ.
+- Mô hình môi trường: Mô tả cách các hành động ảnh hưởng đến trạng thái – có thể xác định (deterministic) hoặc ngẫu nhiên (stochastic).
+## Giải pháp:
+Là một chuỗi hành động dẫn từ trạng thái ban đầu đến mục tiêu, đảm bảo tuân thủ các ràng buộc và đạt được mục tiêu mong muốn.
 ![Image](https://github.com/user-attachments/assets/61ffd005-8874-4cf5-b091-7381b9e3de28)
 ![Image](https://github.com/user-attachments/assets/8ce110f2-e462-4858-b4b7-1a3744c04f38)
+### Đánh giá thuật toán
+- AND‑OR Tree Search hoạt động rất hiệu quả khi môi trường xác định vì mỗi bước chỉ cần đảm bảo hành động có kết quả mà không phải duy trì tập niềm tin phức tạp.Partially Observable Search tốn nhiều thời gian hơndo phải theo dõi và cập nhật niềm tin mỗi khi nhận quan sát không đầy đủ.
 ## 2.6. Introduction to Reinforcement Learning
 Trong Reinforcement Learning, giải pháp là một chính sách tối ưu là một hàm ánh xạ từ trạng thái đến hành động sao cho tổng phần thưởng tích lũy theo thời gian được tối đa hóa.
 ![Image](https://github.com/user-attachments/assets/39c8e046-2812-4881-bdc7-069608af021c)
