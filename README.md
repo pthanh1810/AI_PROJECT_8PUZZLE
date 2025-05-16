@@ -68,6 +68,9 @@ Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiê
 ![Image](https://github.com/user-attachments/assets/4bcb782c-3bb8-4ca2-bf4b-a8f18060bd31)
 ![Image](https://github.com/user-attachments/assets/3f72258e-ab5e-4dec-a08d-e99f6bb2e0aa)
 ### Đánh giá thuật toán
+- Backtracking:Là phương pháp cơ bản và dễ triển khai, Backtracking hoạt động bằng cách thử từng giá trị cho biến và quay lui khi gặp xung đột. Tuy đảm bảo tìm được lời giải nếu tồn tại, nhưng hiệu suất thấp khi không gian trạng thái lớn, do phải duyệt qua nhiều khả năng mà không có cơ chế loại bỏ sớm các lựa chọn không hợp lệ.
+- Backtracking Forward :cải thiện hiệu suất so với Backtracking bằng cách loại bỏ sớm các giá trị không hợp lệ khỏi miền giá trị của các biến chưa gán, giúp giảm số lần quay lui. Tuy nhiên, chi phí tính toán cao hơn do cần cập nhật miền giá trị sau mỗi lần gán biến, và không phát hiện được tất cả các xung đột tiềm ẩn như các phương pháp kiểm tra tính nhất quán mạnh hơn.
+- Min-Conflicts: có thể tìm lời giải nhanh chóng nếu bắt đầu từ một trạng thái khởi đầu tốt. Tuy vậy, nó không đảm bảo tìm được lời giải trong mọi trường hợp, đặc biệt nếu không gian trạng thái có nhiều cực trị cục bộ hoặc trạng thái khởi đầu không tốt.
 ## 2.5. Searching in Complex Environments
 Trong các bài toán tìm kiếm phức tạp, thường có một số thành phần cơ bản như sau:
 -Không gian trạng thái: Tập hợp tất cả các trạng thái có thể có của hệ thống, phản ánh các cấu hình hay vị trí khác nhau trong môi trường.
@@ -80,7 +83,6 @@ Trong các bài toán tìm kiếm phức tạp, thường có một số thành 
 -Giải pháp của bài toán là một chuỗi hành động (hoặc một kế hoạch) dẫn từ trạng thái ban đầu đến mục tiêu, đảm bảo tuân thủ các ràng buộc và đạt được mục tiêu mong muốn
 ![Image](https://github.com/user-attachments/assets/61ffd005-8874-4cf5-b091-7381b9e3de28)
 ![Image](https://github.com/user-attachments/assets/8ce110f2-e462-4858-b4b7-1a3744c04f38)
-### Đánh giá thuật toán
 ## 2.6. Introduction to Reinforcement Learning
 Trong Reinforcement Learning, giải pháp là một chính sách tối ưu là một hàm ánh xạ từ trạng thái đến hành động sao cho tổng phần thưởng tích lũy theo thời gian được tối đa hóa.
 ![Image](https://github.com/user-attachments/assets/39c8e046-2812-4881-bdc7-069608af021c)
