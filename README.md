@@ -22,14 +22,14 @@ Bài toán 8-puzzle là một dạng bài toán trạng thái với các đặc 
 ### Giải pháp
 Một **giải pháp** cho bài toán tìm kiếm là một chuỗi các hành động (hoặc các trạng thái trung gian) liên tiếp nhau từ **trạng thái khởi đầu** đến **trạng thái đích**, sao cho đáp ứng đầy đủ các điều kiện ràng buộc của bài toán.  
 Giải pháp này là **kết quả đầu ra** mà thuật toán tìm kiếm trả về khi tìm được đường đi tối ưu hoặc hợp lệ.
-![Image](https://github.com/user-attachments/assets/48f4cc9e-3d21-49b2-b2b3-aaf21153a468)
+
 ## 2.2 Các thuật toán tìm kiếm không có thông tin
 - Greedy: Mở rộng nút được ước tính là gần mục tiêu nhất.
 - Tìm kiếm A* :Kết hợp chi phí đã đi đến nút và chi phí ước tính đến mục tiêu, đảm bảo tính tối ưu trong các điều kiện nhất định.
 - IDA (A sâu dần lặp lại):Một phiên bản sâu dần lặp lại của A*, hữu ích cho các không gian tìm kiếm lớn.
 ### Giải pháp
 Một **giải pháp** là chuỗi các hành động (hoặc trạng thái trung gian) dẫn từ **trạng thái ban đầu** đến **trạng thái đích**, sao cho thỏa mãn yêu cầu của bài toán tìm kiếm. Đây là kết quả cuối cùng mà thuật toán tìm kiếm trả về.
-![Image](https://github.com/user-attachments/assets/25682b96-c22b-4f3c-a716-0f6996cedf89)
+
 ## 2.3. Local Search
 Local Search là nhóm thuật toán tìm kiếm không quan tâm đến toàn bộ không gian trạng thái, mà chỉ tập trung vào việc cải thiện trạng thái hiện tại. Thường được sử dụng khi không cần lưu vết đường đi, hoặc không gian trạng thái quá lớn để duyệt toàn bộ.
 - Leo đồi đơn giản: Di chuyển đến hàng xóm có giá trị hàm đánh giá tốt nhất.
@@ -40,15 +40,16 @@ Local Search là nhóm thuật toán tìm kiếm không quan tâm đến toàn b
 - Local Beam Search: Duy trì và cải thiện nhiều giải pháp ứng viên.
 ###Giải pháp:
 Là chuỗi các hành động hoặc trạng thái dẫn từ **trạng thái ban đầu** đến **trạng thái đích**, sao cho thỏa mãn mục tiêu bài toán. Trong Local Search, giải pháp có thể là trạng thái "tốt nhất" đạt được, không nhất thiết phải là tối ưu toàn cục.
-![Image](https://github.com/user-attachments/assets/b7416e34-5971-4240-ab22-87d5ffc9a214)
+
 ## 2.4. Constraint Satisfaction Problems
 Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiêu là tìm một sự phân bổ giá trị cho các biến sao cho tất cả các ràng buộc giữa các biến đều được thỏa mãn. CSP là một lĩnh vực quan trọng trong trí tuệ nhân tạo và lý thuyết tối ưu, với ứng dụng trong nhiều bài toán thực tiễn như lập lịch, tìm kiếm, và lập trình ràng buộc.
 - Backtracking: Một thuật toán tổng quát để tìm tất cả (hoặc một số) giải pháp cho một số bài toán tính toán, xây dựng dần các ứng viên cho giải pháp và từ bỏ một ứng viên ("quay lui") ngay khi xác định rằng ứng viên này không thể hoàn thành thành một giải pháp hợp lệ.
 - Backtracking Forward: Một biến thể của quay lui kết hợp kiểm tra phía trước để cắt tỉa không gian tìm kiếm sớm hơn.
 - Min-Conflicts: Một thuật toán tìm kiếm cục bộ được thiết kế đặc biệt cho các bài toán thỏa mãn ràng buộc.
-![Image](https://github.com/user-attachments/assets/4a463e48-7e59-42e8-9235-062f7e2a53c7)
-## 2.5. Searching in Complex Environments
 
-![Image](https://github.com/user-attachments/assets/ec6cfeee-7c15-47d0-a75f-bd036fdbb00b)
+## 2.5. Searching in Complex Environments
+Trong Reinforcement Learning, solution là một chính sách tối ưu — tức là một hàm ánh xạ từ trạng thái đến hành động, nhằm tối đa hóa tổng phần thưởng tích lũy (cumulative reward) theo thời gian
+## 3.Kết luận:
+Việc áp dụng các thuật toán thuộc sáu nhóm khác nhau đã cho kết quả thành công trong nhiều trường hợp. Tuy nhiên, trong một số tình huống nhất định, một số thuật toán có thể không tìm được lời giải, nguyên nhân do môi trường không ổn định. Điều này có thể xảy ra khi môi trường thay đổi theo thời gian, chứa yếu tố ngẫu nhiên, hoặc khi việc hiển thị và vẽ môi trường trên màn hình không phản ánh chính xác bên trong. Những yếu tố này khiến quá trình tìm kiếm đường đi hoặc giải pháp của thuật toán gặp khó khăn hoặc thậm chí thất bại, mặc dù về lý thuyết thuật toán vẫn đúng và đầy đủ
 
 
