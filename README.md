@@ -23,6 +23,7 @@ Bài toán 8-puzzle là một dạng bài toán trạng thái với các đặc 
 Một **giải pháp** cho bài toán tìm kiếm là một chuỗi các hành động (hoặc các trạng thái trung gian) liên tiếp nhau từ **trạng thái khởi đầu** đến **trạng thái đích**, sao cho đáp ứng đầy đủ các điều kiện ràng buộc của bài toán.  
 Giải pháp này là **kết quả đầu ra** mà thuật toán tìm kiếm trả về khi tìm được đường đi tối ưu hoặc hợp lệ.
 ![Image](https://github.com/user-attachments/assets/66f87ae3-6b5d-45de-a73e-f531d80a11e5)
+![Image](https://github.com/user-attachments/assets/5294ef7c-f890-47c4-bf44-dff967b12400)
 ## 2.2 Các thuật toán tìm kiếm không có thông tin
 - Greedy: Mở rộng nút được ước tính là gần mục tiêu nhất.
 - Tìm kiếm A* :Kết hợp chi phí đã đi đến nút và chi phí ước tính đến mục tiêu, đảm bảo tính tối ưu trong các điều kiện nhất định.
@@ -48,7 +49,15 @@ Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiê
 - Min-Conflicts: Một thuật toán tìm kiếm cục bộ được thiết kế đặc biệt cho các bài toán thỏa mãn ràng buộc.
 ![Image](https://github.com/user-attachments/assets/4bcb782c-3bb8-4ca2-bf4b-a8f18060bd31)
 ## 2.5. Searching in Complex Environments
-Trong Reinforcement Learning, solution là một chính sách tối ưu — tức là một hàm ánh xạ từ trạng thái đến hành động, nhằm tối đa hóa tổng phần thưởng tích lũy (cumulative reward) theo thời gian.
+Trong các bài toán tìm kiếm phức tạp, thường có một số thành phần cơ bản như sau:
+-Không gian trạng thái: Tập hợp tất cả các trạng thái có thể có của hệ thống, phản ánh các cấu hình hay vị trí khác nhau trong môi trường.
+-Trạng thái khởi đầu: Nơi bắt đầu quá trình tìm kiếm.
+-Trạng thái mục tiêu: Trạng thái (hoặc một nhóm trạng thái) mà thuật toán hướng tới.
+-Tập hành động hoặc toán tử chuyển trạng thái: Các hành động cho phép chuyển từ trạng thái hiện tại sang trạng thái kế tiếp trong không gian trạng thái.
+-Hàm kiểm tra mục tiêu: Dùng để xác định liệu trạng thái hiện tại có phải là trạng thái đích hay không.
+-Mức độ quan sát: Trong một số môi trường, trạng thái có thể chỉ được quan sát một phần, tạo thành các bài toán với khả năng quan sát không đầy đủ.
+-Mô hình môi trường: Mô tả cách các hành động ảnh hưởng đến trạng thái – có thể xác định (deterministic) hoặc ngẫu nhiên (stochastic).
+-Giải pháp của bài toán là một chuỗi hành động (hoặc một kế hoạch) dẫn từ trạng thái ban đầu đến mục tiêu, đảm bảo tuân thủ các ràng buộc và đạt được mục tiêu mong muốn
 ![Image](https://github.com/user-attachments/assets/61ffd005-8874-4cf5-b091-7381b9e3de28)
 ## 2.6. Introduction to Reinforcement Learning
 Trong Reinforcement Learning, giải pháp là một chính sách tối ưu là một hàm ánh xạ từ trạng thái đến hành động sao cho tổng phần thưởng tích lũy theo thời gian được tối đa hóa.
