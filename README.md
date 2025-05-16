@@ -27,7 +27,8 @@ Giải pháp này là **kết quả đầu ra** mà thuật toán tìm kiếm tr
 ### Đánh giá thuật toán
 - DFS (Depth-First Search) có thời gian thực hiện cao nhất (0.1576 giây), chứng tỏ không tối ưu trong bài toán 8-puzzle về mặt thời gian. Mặc dù DFS sử dụng ít bộ nhớ, nhưng dễ đi vào nhánh sai và mất thời gian tìm lối thoát.
 - BFS và IDS có thời gian gần như bằng 0, cho thấy rất nhanh trong trường hợp cụ thể này. Tuy nhiên, điều này còn phụ thuộc vào độ sâu của lời giải – nếu trạng thái đích nằm sâu, BFS sẽ tốn nhiều tài nguyên hơn.
-- UCS (Uniform-Cost Search) có thời gchung, DFS kém hiệu quả nhất, còn BFS, IDS và UCS cho kết quả nhanh và phù hợp với bài toán có không gian trạng thái lớn như 8-puzzle, đặc biệt là khi cần giải pháp ngắn hoặc có chi phí tối ưu.
+- UCS (Uniform-Cost Search) có thời gian thực hiện nhỏ (0.0015 giây), chậm hơn BFS và IDS một chút nhưng đảm bảo tìm giải pháp có chi phí thấp nhất.
+- Nhìn chung, DFS kém hiệu quả nhất, còn BFS, IDS và UCS cho kết quả nhanh và phù hợp với bài toán có không gian trạng thái lớn như 8-puzzle, đặc biệt là khi cần giải pháp ngắn hoặc có chi phí tối ưu.
 ## 2.2 Các thuật toán tìm kiếm không có thông tin
 - Greedy: Mở rộng nút được ước tính là gần mục tiêu nhất.
 - Tìm kiếm A* :Kết hợp chi phí đã đi đến nút và chi phí ước tính đến mục tiêu, đảm bảo tính tối ưu trong các điều kiện nhất định.
@@ -35,7 +36,12 @@ Giải pháp này là **kết quả đầu ra** mà thuật toán tìm kiếm tr
 ### Giải pháp
 Một **giải pháp** là chuỗi các hành động (hoặc trạng thái trung gian) dẫn từ **trạng thái ban đầu** đến **trạng thái đích**, sao cho thỏa mãn yêu cầu của bài toán tìm kiếm. Đây là kết quả cuối cùng mà thuật toán tìm kiếm trả về.
 ![Image](https://github.com/user-attachments/assets/10029e4f-a1b2-4bc1-b4e4-24d8fefca54f)
-![Image](https://github.com/user-attachments/assets/37dfd420-5565-4716-8abb-8cc53cdf7e2a)
+![Image](https://github.com/user-attachments/assets/6531a781-87cc-41b0-beb1-1b04c8b4743a)
+### Đánh giá thuật toán
+- Thuật toán A*: tìm ra lời giải tối ưu một cách hiệu quả, đặc biệt khi sử dụng hàm heuristic thích hợp.
+- Greedy : có tốc độ xử lý nhanh hơn nhưng lại không đảm bảo tìm được lời giải tối ưu, dễ đi lạc hướng trong không gian trạng thái phức tạp.
+- Thuật toán IDA* : tuy vẫn đảm bảo tính tối ưu, nhưng thời gian thực thi có thể kéo dài hơn.
+- Nhìn chung, các thuật toán tìm kiếm có sử dụng heuristic giúp giảm thiểu đáng kể số lượng trạng thái cần xem xét, mang lại hiệu quả vượt trội so với các phương pháp tìm kiếm không sử dụng thông tin.
 ## 2.3. Local Search
 Local Search là nhóm thuật toán tìm kiếm không quan tâm đến toàn bộ không gian trạng thái, mà chỉ tập trung vào việc cải thiện trạng thái hiện tại. Thường được sử dụng khi không cần lưu vết đường đi, hoặc không gian trạng thái quá lớn để duyệt toàn bộ.
 - Leo đồi đơn giản: Di chuyển đến hàng xóm có giá trị hàm đánh giá tốt nhất.
@@ -44,10 +50,12 @@ Local Search là nhóm thuật toán tìm kiếm không quan tâm đến toàn b
 - Simulated Annealing: Cho phép di chuyển đến các trạng thái tồi tệ hơn với một xác suất giảm dần theo thời gian, giúp thoát khỏi các cực tiểu cục bộ.
 - Genetic Algorithm: Một thuật toán metaheuristic dựa trên quần thể, lấy cảm hứng từ chọn lọc tự nhiên.
 - Local Beam Search: Duy trì và cải thiện nhiều giải pháp ứng viên.
-###Giải pháp:
+### Giải pháp:
 Là chuỗi các hành động hoặc trạng thái dẫn từ **trạng thái ban đầu** đến **trạng thái đích**, sao cho thỏa mãn mục tiêu bài toán. Trong Local Search, giải pháp có thể là trạng thái "tốt nhất" đạt được, không nhất thiết phải là tối ưu toàn cục.
 ![Image](https://github.com/user-attachments/assets/b4614965-31d2-4184-86cb-c6bc68eb7f6a)
 ![Image](https://github.com/user-attachments/assets/a28ede6e-ddc8-467c-9a79-1340fd614309)
+### Đánh giá thuật toán
+
 ## 2.4. Constraint Satisfaction Problems
 Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiêu là tìm một sự phân bổ giá trị cho các biến sao cho tất cả các ràng buộc giữa các biến đều được thỏa mãn. CSP là một lĩnh vực quan trọng trong trí tuệ nhân tạo và lý thuyết tối ưu, với ứng dụng trong nhiều bài toán thực tiễn như lập lịch, tìm kiếm, và lập trình ràng buộc.
 - Backtracking: Một thuật toán tổng quát để tìm tất cả (hoặc một số) giải pháp cho một số bài toán tính toán, xây dựng dần các ứng viên cho giải pháp và từ bỏ một ứng viên ("quay lui") ngay khi xác định rằng ứng viên này không thể hoàn thành thành một giải pháp hợp lệ.
