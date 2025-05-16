@@ -55,7 +55,11 @@ Là chuỗi các hành động hoặc trạng thái dẫn từ **trạng thái b
 ![Image](https://github.com/user-attachments/assets/b4614965-31d2-4184-86cb-c6bc68eb7f6a)
 ![Image](https://github.com/user-attachments/assets/a28ede6e-ddc8-467c-9a79-1340fd614309)
 ### Đánh giá thuật toán
-
+Các thuật toán Local Search đơn giản chạy nhanh nhưng dễ bị kẹt ở nghiệm chưa tối ưu. 
+- Simulated Annealing: khắc phục nhược điểm này bằng cách cho phép thử nghiệm kém hơn để thoát khỏi bế tắc, phù hợp với bài toán phức tạp.
+- Beam Search cân đối tốt giữa tốc độ và bộ nhớ nếu chọn độ rộng (beam width) hợp lý.
+- Genetic Algorithm có thể tìm lời giải tốt trong không gian lớn nhưng cần nhiều tính toán và điều chỉnh tham số.
+- Nhìn chung , các phương pháp tìm kiếm cục bộ và tiến hóa giúp giải nhanh hơn so với tìm kiếm toàn diện, nhưng không luôn đảm bảo tối ưu tuyệt đối
 ## 2.4. Constraint Satisfaction Problems
 Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiêu là tìm một sự phân bổ giá trị cho các biến sao cho tất cả các ràng buộc giữa các biến đều được thỏa mãn. CSP là một lĩnh vực quan trọng trong trí tuệ nhân tạo và lý thuyết tối ưu, với ứng dụng trong nhiều bài toán thực tiễn như lập lịch, tìm kiếm, và lập trình ràng buộc.
 - Backtracking: Một thuật toán tổng quát để tìm tất cả (hoặc một số) giải pháp cho một số bài toán tính toán, xây dựng dần các ứng viên cho giải pháp và từ bỏ một ứng viên ("quay lui") ngay khi xác định rằng ứng viên này không thể hoàn thành thành một giải pháp hợp lệ.
@@ -63,6 +67,7 @@ Constraint Satisfaction Problems (CSP) là các bài toán trong đó mục tiê
 - Min-Conflicts: Một thuật toán tìm kiếm cục bộ được thiết kế đặc biệt cho các bài toán thỏa mãn ràng buộc.
 ![Image](https://github.com/user-attachments/assets/4bcb782c-3bb8-4ca2-bf4b-a8f18060bd31)
 ![Image](https://github.com/user-attachments/assets/3f72258e-ab5e-4dec-a08d-e99f6bb2e0aa)
+### Đánh giá thuật toán
 ## 2.5. Searching in Complex Environments
 Trong các bài toán tìm kiếm phức tạp, thường có một số thành phần cơ bản như sau:
 -Không gian trạng thái: Tập hợp tất cả các trạng thái có thể có của hệ thống, phản ánh các cấu hình hay vị trí khác nhau trong môi trường.
@@ -75,9 +80,11 @@ Trong các bài toán tìm kiếm phức tạp, thường có một số thành 
 -Giải pháp của bài toán là một chuỗi hành động (hoặc một kế hoạch) dẫn từ trạng thái ban đầu đến mục tiêu, đảm bảo tuân thủ các ràng buộc và đạt được mục tiêu mong muốn
 ![Image](https://github.com/user-attachments/assets/61ffd005-8874-4cf5-b091-7381b9e3de28)
 ![Image](https://github.com/user-attachments/assets/8ce110f2-e462-4858-b4b7-1a3744c04f38)
+### Đánh giá thuật toán
 ## 2.6. Introduction to Reinforcement Learning
 Trong Reinforcement Learning, giải pháp là một chính sách tối ưu là một hàm ánh xạ từ trạng thái đến hành động sao cho tổng phần thưởng tích lũy theo thời gian được tối đa hóa.
 ![Image](https://github.com/user-attachments/assets/39c8e046-2812-4881-bdc7-069608af021c)
+### Đánh giá thuật toán
 ## 3.Kết luận:
 Việc áp dụng các thuật toán thuộc sáu nhóm khác nhau đã cho kết quả thành công trong nhiều trường hợp. Tuy nhiên, trong một số tình huống nhất định, một số thuật toán có thể không tìm được lời giải, nguyên nhân do môi trường không ổn định. Điều này có thể xảy ra khi môi trường thay đổi theo thời gian, chứa yếu tố ngẫu nhiên, hoặc khi việc hiển thị và vẽ môi trường trên màn hình không phản ánh chính xác bên trong. Những yếu tố này khiến quá trình tìm kiếm đường đi hoặc giải pháp của thuật toán gặp khó khăn hoặc thậm chí thất bại, mặc dù về lý thuyết thuật toán vẫn đúng và đầy đủ
 
