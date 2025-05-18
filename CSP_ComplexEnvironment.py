@@ -27,13 +27,12 @@ LIGHT_BLUE_HEX = "#ccf2ff"     # Nền xanh nhạt
 DARK_BLUE_HEX = "#004080"      # Xanh đậm cho nút
 WHITE_HEX = "#ffffff"
 
-# Font chữ
+
 FONT = pygame.font.SysFont("Arial", 48, bold=True)
 
 # Trạng thái mục tiêu
 GOAL_STATE = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 
-# Các hàm hỗ trợ
 def is_goal(state):
     return state == GOAL_STATE
 
@@ -75,7 +74,7 @@ def h_manhattan(state):
         total += abs(target_row - current_row) + abs(target_col - current_col)
     return total
 
-# Các thuật toán được giữ lại
+
 def backtracking(start_state, depth_limit=50):
     if not is_solvable(start_state):
         return None, 0, 0

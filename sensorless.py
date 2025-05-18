@@ -6,10 +6,10 @@ from collections import deque
 import time
 import math
 
-
+# Khởi tạo Pygame
 pygame.init()
 
-
+# Cài đặt màn hình
 WIDTH = 1280
 HEIGHT = 720
 CELL_SIZE = 80
@@ -17,13 +17,15 @@ GRID_SIZE = 3
 CONTROL_PANEL_WIDTH = 450
 CONTROL_PANEL_HEIGHT = 320
 CONTROL_PANEL_X = (WIDTH - CONTROL_PANEL_WIDTH) // 2
-CONTROL_PANEL_Y = 20  
+CONTROL_PANEL_Y = 20  # Bảng kết quả ở trên cùng
 GRID_OFFSET_X = 30
-GRID_OFFSET_Y = CONTROL_PANEL_Y + CONTROL_PANEL_HEIGHT + 100  
+GRID_OFFSET_Y = CONTROL_PANEL_Y + CONTROL_PANEL_HEIGHT + 100  # Tăng khoảng cách để dịch lưới xuống
+BUTTON_WIDTH = 200
+BUTTON_HEIGHT = 55
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("SensorlessSensorless")
+pygame.display.set_caption("8-Puzzle Solver - Sensorless")
 
-
+# Màu sắc
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = (200, 200, 200)
@@ -40,7 +42,7 @@ BG_GRADIENT_TOP = (255, 69, 0)  # Red-orange
 BG_GRADIENT_BOTTOM = (255, 255, 153)  # Light yellow
 PANEL_BG = (255, 245, 238)  # Seashell for panel background
 
-
+# Font hỗ trợ tiếng Việt
 try:
     FONT_PATH = "C:\\Windows\\Fonts\\arial.ttf"
     FONT = pygame.font.Font(FONT_PATH, 28)
@@ -61,7 +63,7 @@ GOAL_STATE = [
     [7, 8, 0]
 ]
 
-# Trạng thái niềm tin
+# Ba trạng thái niềm tin ban đầu
 BELIEF_STATE_1 = [
     [1, 2, 3],
     [4, 5, 6],
@@ -141,7 +143,7 @@ class Puzzle:
         if show_goal_only or all_at_goal:
             x_offset = WIDTH // 2 - CELL_SIZE * 1.5
             y_offset = GRID_OFFSET_Y + 50
-            label_text = BOLD_FONT.render("Hoàn Thành", True, RED)
+            label_text = BOLD_FONT.render("Hoàn Thành Tất Cả!", True, RED)
             label_rect = label_text.get_rect(center=(WIDTH // 2, y_offset - 60))
             screen.blit(label_text, label_rect)
             for i in range(3):
@@ -311,6 +313,17 @@ def draw_gradient_background(screen):
         pygame.draw.line(gradient_surface, (r, g, b), (0, y), (WIDTH, y))
     screen.blit(gradient_surface, (0, 0))
 
+def draw_gradient_rect(screen, rect, color1, color2):
+    x, y, w, h = rect
+    gradient_surface = pygame.Surface((w, h))
+    for i in range(h):
+        ratio = i / h
+        r = int(color1[0] * (1 - ratio) + color2[0] * ratio)
+        g = int(color1[1] * (1 - ratio) + color2[1] * ratio)
+        b = int(color1[2] * (1 - ratio) + color2[2] * ratio)
+        pygame.draw.line(gradient_surface, (r, g, b), (0, i), (w, i))
+    screen.blit(gradient_surface, (x, y))
+
 def draw_results_panel(screen, font, puzzle, solving, path, step):
     shadow_rect = pygame.Rect(CONTROL_PANEL_X + 4, CONTROL_PANEL_Y + 4, CONTROL_PANEL_WIDTH, CONTROL_PANEL_HEIGHT)
     pygame.draw.rect(screen, (30, 30, 30, 100), shadow_rect, border_radius=20)
@@ -330,25 +343,39 @@ def draw_results_panel(screen, font, puzzle, solving, path, step):
     screen.blit(title_text, title_rect)
 
     status_y = CONTROL_PANEL_Y + 90
-
+    # Status
     status_text = "Hoàn Thành" if not solving and path else "Đang Xử Lý" if solving else "Lỗi"
     status_color = YELLOW if status_text == "Hoàn Thành" else RED if status_text == "Lỗi" else BLACK
     status_label = font.render(f"Trạng Thái: {status_text}", True, status_color)
     screen.blit(status_label, (CONTROL_PANEL_X + 30, status_y))
 
-
+    # Steps
     steps_text = font.render(f"Số Bước: {puzzle.move_count}", True, BLACK)
     screen.blit(steps_text, (CONTROL_PANEL_X + 30, status_y + 50))
 
-
+    # Time
     time_text = font.render(f"Thời Gian: {puzzle.execution_time:.2f}s", True, BLACK)
     screen.blit(time_text, (CONTROL_PANEL_X + 30, status_y + 100))
 
-
+    # Error Message
     if puzzle.error_message:
         error_text = font.render(f"Lỗi: {puzzle.error_message}", True, RED)
         error_rect = error_text.get_rect(center=(CONTROL_PANEL_X + CONTROL_PANEL_WIDTH // 2, status_y + 150))
         screen.blit(error_text, error_rect)
+
+    # Run Again Button
+    run_again_rect = None
+    if not solving and path:
+        button_x = CONTROL_PANEL_X + (CONTROL_PANEL_WIDTH - BUTTON_WIDTH) // 2
+        button_y = status_y + 150
+        run_again_rect = pygame.Rect(button_x, button_y, BUTTON_WIDTH, BUTTON_HEIGHT)
+        draw_gradient_rect(screen, run_again_rect, DARK_RED, LIGHT_RED)
+        pygame.draw.rect(screen, DARK_GRAY, run_again_rect, 2, border_radius=10)
+        run_again_text = font.render("Chạy Lại", True, WHITE)
+        run_again_text_rect = run_again_text.get_rect(center=run_again_rect.center)
+        screen.blit(run_again_text, run_again_text_rect)
+
+    return run_again_rect
 
 def find_highlight_positions(puzzle, path, step):
     if step + 1 >= len(path):
@@ -380,6 +407,15 @@ def print_belief_state(belief_states, step):
         for row in state:
             print(row)
 
+def reset_puzzle():
+    initial_belief = [BELIEF_STATE_1, BELIEF_STATE_2, BELIEF_STATE_3]
+    puzzle = Puzzle(initial_belief)
+    puzzle.move_count = 0
+    puzzle.execution_time = 0
+    puzzle.error_message = ""
+    puzzle.animations = [{} for _ in initial_belief]
+    return puzzle
+
 def main():
     initial_belief = [BELIEF_STATE_1, BELIEF_STATE_2, BELIEF_STATE_3]
     print("Initial belief states:")
@@ -394,6 +430,8 @@ def main():
     step = 0
     animation_time = 0
     clock = pygame.time.Clock()
+
+    # Automatically start solving
     print("Starting solver automatically...")
     solver = PuzzleSolver(puzzle)
     path = solver.solve()
@@ -413,6 +451,23 @@ def main():
             for event in pygame.event.get():
                 if event.type == QUIT:
                     running = False
+                elif event.type == MOUSEBUTTONDOWN:
+                    x, y = event.pos
+                    run_again_rect = draw_results_panel(screen, FONT, puzzle, solving, path, step)
+                    if run_again_rect and run_again_rect.collidepoint(x, y) and not solving and path:
+                        print("Run Again button clicked")
+                        puzzle = reset_puzzle()
+                        solving = True
+                        path = []
+                        step = 0
+                        animation_time = 0
+                        solver = PuzzleSolver(puzzle)
+                        path = solver.solve()
+                        if not path:
+                            solving = False
+                            print("Không tìm thấy giải pháp!")
+                        else:
+                            print("Đã tìm thấy giải pháp!")
 
             if solving and path:
                 if step < len(path):

@@ -30,7 +30,7 @@ SHADOW = (50, 50, 50, 50)      # For shadow effect
 LIGHT_BLUE_HEX = "#ccf2ff"     # Màu nền xanh nhạt
 DARK_BLUE_HEX = "#004080"      # Màu xanh đậm cho các nút
 WHITE = "#ffffff"
-# Hex colors for Tkinter
+
 PRIMARY_BLUE_HEX = "#1E90FF"
 DARK_BLUE_HEX = "#191970"
 LIGHT_BLUE_HEX = "#ADD8E6"
@@ -38,13 +38,12 @@ WHITE_HEX = "#FFFFFF"
 GRAY_HEX = "#C8C8C8"
 RED_HEX = "#FF0000"
 
-# Font
 FONT = pygame.font.SysFont("Arial", 48, bold=True)
 
-# Goal state (dùng "" làm ô trống để khớp với bài thứ hai)
+
 GOAL_STATE = ("1", "2", "3", "4", "5", "6", "7", "8", "")
 
-# ======= Helper Functions =======
+
 def is_goal(state):
     return state == GOAL_STATE
 
