@@ -83,7 +83,8 @@ Trong các bài toán tìm kiếm phức tạp, thường có một số thành 
 ## Giải pháp:
 Là một chuỗi hành động dẫn từ trạng thái ban đầu đến mục tiêu, đảm bảo tuân thủ các ràng buộc và đạt được mục tiêu mong muốn.
 ![Image](https://github.com/user-attachments/assets/61ffd005-8874-4cf5-b091-7381b9e3de28)
-![Image](https://github.com/user-attachments/assets/8ce110f2-e462-4858-b4b7-1a3744c04f38)
+![Image](https://github.com/user-attachments/assets/2437c8a0-d5fa-46e0-aae0-1ea20295b007)
+![Image](https://github.com/user-attachments/assets/5655bdab-f504-4d5f-b2d9-a50ee8d59f91)
 ### Đánh giá thuật toán
 - AND‑OR Tree Search hoạt động rất hiệu quả khi môi trường xác định vì mỗi bước chỉ cần đảm bảo hành động có kết quả mà không phải duy trì tập niềm tin phức tạp.Partially Observable Search tốn nhiều thời gian hơndo phải theo dõi và cập nhật niềm tin mỗi khi nhận quan sát không đầy đủ.
 ## 2.6. Introduction to Reinforcement Learning
