@@ -86,11 +86,12 @@ Là một chuỗi hành động dẫn từ trạng thái ban đầu đến mục
 ![Image](https://github.com/user-attachments/assets/2437c8a0-d5fa-46e0-aae0-1ea20295b007)
 ![Image](https://github.com/user-attachments/assets/5655bdab-f504-4d5f-b2d9-a50ee8d59f91)
 ### Đánh giá thuật toán
-- AND‑OR Tree Search hoạt động rất hiệu quả khi môi trường xác định vì mỗi bước chỉ cần đảm bảo hành động có kết quả mà không phải duy trì tập niềm tin phức tạp.Partially Observable Search tốn nhiều thời gian hơndo phải theo dõi và cập nhật niềm tin mỗi khi nhận quan sát không đầy đủ.
+- Thuật toán AND-OR Tree có thời gian chạy nhanh nhất, cho thấy khả năng xử lý hiệu quả khi môi trường có thể xác định rõ ràng. Sensorless, hoạt động trong môi trường không có thông tin cảm biến, có thời gian chạy cao hơn do phải duy trì và cập nhật tập hợp các trạng thái khả dĩ liên tục. Trong khi đó, Partially Observable có thời gian chạy chậm nhất vì phải xử lý các phép ước lượng trạng thái và cập nhật belief state qua mỗi bước đi.Nhìn chung, hiệu suất của các thuật toán này trong 8-Puzzle ở quy mô đầy đủ là khá hạn chế, và khó có thể áp dụng trực tiếp mà không sử dụng thêm các kỹ thuật giảm không gian trạng thái, heuristic mạnh hoặc tối ưu hóa hiệu năng. Điều này phản ánh rõ đặc trưng của các môi trường phức tạp và vai trò thiết yếu của việc lựa chọn thuật toán phù hợp với đặc điểm của bài toán.
 ## 2.6. Introduction to Reinforcement Learning
 Trong Reinforcement Learning, giải pháp là một chính sách tối ưu là một hàm ánh xạ từ trạng thái đến hành động sao cho tổng phần thưởng tích lũy theo thời gian được tối đa hóa.
 ![Image](https://github.com/user-attachments/assets/39c8e046-2812-4881-bdc7-069608af021c)
 ### Đánh giá thuật toán
+- Thuật toán Q-Learning khi áp dụng cho bài toán 8-Puzzle gặp nhiều khó khăn do không gian trạng thái lớn và quá trình học cần nhiều thời gian để hội tụ. Vì không sử dụng heuristic, Q-Learning thường chậm và kém hiệu quả nếu không có chiến lược khám phá tốt hoặc kỹ thuật hỗ trợ như Deep Q-Learning. Do đó, hiệu suất thấp và khó áp dụng trực tiếp cho 8-Puzzle đầy đủ nếu không tối ưu hóa thêm
 ## 3.Kết luận:
 Việc áp dụng các thuật toán thuộc sáu nhóm khác nhau đã cho kết quả thành công trong nhiều trường hợp. Tuy nhiên, trong một số tình huống nhất định, một số thuật toán có thể không tìm được lời giải, nguyên nhân do môi trường không ổn định. Điều này có thể xảy ra khi môi trường thay đổi theo thời gian, chứa yếu tố ngẫu nhiên, hoặc khi việc hiển thị và vẽ môi trường trên màn hình không phản ánh chính xác bên trong. Những yếu tố này khiến quá trình tìm kiếm đường đi hoặc giải pháp của thuật toán gặp khó khăn hoặc thậm chí thất bại, mặc dù về lý thuyết thuật toán vẫn đúng và đầy đủ
 
