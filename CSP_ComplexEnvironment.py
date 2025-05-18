@@ -7,16 +7,14 @@ import random
 import math
 import heapq
 
-# Khởi tạo Pygame
+
 pygame.init()
 
-# Cấu hình cửa sổ Pygame
 CELL_SIZE = 100
 BOARD_SIZE = 3 * CELL_SIZE
 WINDOW = pygame.display.set_mode((BOARD_SIZE, BOARD_SIZE))
 pygame.display.set_caption("8-Puzzle Solver")
 
-# Bảng màu (tông màu xanh)
 PRIMARY_BLUE = (30, 144, 255)  # DodgerBlue
 DARK_BLUE = (25, 25, 112)      # MidnightBlue
 LIGHT_BLUE = (173, 216, 230)   # LightBlue
